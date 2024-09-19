@@ -2,10 +2,10 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
+    './pages/**/*.{ts,tsx,jsx,js}',
+    './components/**/*.{ts,tsx,jsx,js}',
+    './app/**/*.{ts,tsx,jsx,js}',
+    './src/**/*.{ts,tsx,jsx,js}',
 	],
   theme: {
     container: {
@@ -23,7 +23,7 @@ module.exports = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
+          DEFAULT: "#405ef2",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {

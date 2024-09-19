@@ -1,13 +1,16 @@
-import { SignInButton } from '@clerk/clerk-react'
+// import { SignInButton } from '@clerk/clerk-react'
 import React from 'react'
-import { Button } from './components/ui/button'
+import Header from './components/Header'
+import Hero from './components/Hero'
+// import { Button } from './components/ui/button'
 
 function Home() {
   return (
     <div>
-      <SignInButton mode='modal' forceRedirectUrl='/'>
-      <Button>Sign In</Button>
-      </SignInButton>
+      {/* Header */}
+     <Header/>
+      {/* Hero */}
+      <Hero/>
     </div>
   )
 }
