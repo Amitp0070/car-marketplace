@@ -13,7 +13,7 @@ import Data from "@/Shared/Data";
 function Search() {
   return (
     <div
-      className="md:flex flex-col md:flex-row p-2 md:p-4 bg-white
+      className="md:flex flex-col md:flex-row p-2 md:p-3 bg-white
      rounded-md md:rounded-full gap-10 px-5 items-center w-[60%]"
     >
       <Select>
@@ -31,20 +31,22 @@ function Search() {
           <SelectValue placeholder="Car Makes" />
         </SelectTrigger>
         <SelectContent>
-            {Data.CarMakes.map((maker,index)=>{
-                <SelectItem value={maker.name}>{maker.name}</SelectItem>
-            })}
+          {Data.CarMakes.map((car, index) => (
+            <SelectItem value={car.name}>
+              {car.name}
+            </SelectItem>
+          ))}
         </SelectContent>
       </Select>
       <Separator orientation="vertical" className="hidden md:block" />
       <Select>
         <SelectTrigger className="outline-none md:border-none w-full shadow-none text-lg">
-          <SelectValue placeholder="Theme" />
+          <SelectValue placeholder="Pricing" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="light">Light</SelectItem>
-          <SelectItem value="dark">Dark</SelectItem>
-          <SelectItem value="system">System</SelectItem>
+          {Data.Pricing.map((price, index) =>(
+            <SelectItem value={price.price}>{price.price}</SelectItem>
+          ))}
         </SelectContent>
       </Select>
       <div>

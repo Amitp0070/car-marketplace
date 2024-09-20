@@ -6,7 +6,7 @@ function Header() {
   const { user, isSignedIn } = useUser();
 
   return (
-    <div className="flex justify-between items-center shadow-sm p-5">
+    <div className="flex justify-between items-center shadow-sm p-4">
       <img src="/logo.svg" width={50} />
 
       <ul className="hidden md:flex gap-16">

@@ -2,6 +2,7 @@
 import React from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
+import Category from './components/Category'
 // import { Button } from './components/ui/button'
 
 function Home() {
@@ -11,6 +12,8 @@ function Home() {
      <Header/>
       {/* Hero */}
       <Hero/>
+      {/* Category */}
+      <Category/>
     </div>
   )
 }
