@@ -1,0 +1,233 @@
+{
+  "carDetails": [
+    {
+      "label": "Listing Title",
+      "name": "listingTitle",
+      "fieldType": "text",
+      "required": true,
+      "icon": "FaClipboardlist"
+    },
+    {
+      "label": "Tagline",
+      "name": "tagline",
+      "fieldType": "text",
+      "column": 2,
+      "icon": "FaTag"
+    },
+    {
+      "label": "Original Price",
+      "name": "originalPrice",
+      "fieldType": "text",
+      "column": 1,
+      "icon": "FaDollarSign"
+    },
+    {
+        "label": "Selling Price",
+        "name": "sellingPrice",
+        "fieldType": "text",
+        "column": 1,
+        "required": true,
+        "icon": "FaDollarSign"
+    },
+    {
+      "label": "Category",
+      "name": "category",
+      "fieldType": "dropdown",
+      "required": true,
+      "options": [
+        "Toyota",
+        "Honda",
+        "Ford",
+        "Chevrolet",
+        "Nissan",
+        "BMW",
+        "Mercedes",
+        "Audi",
+        "Volkswagen",
+        "Kia",
+        "Hyundai"
+      ],
+      "icon": "FaCar",
+      "column": 1
+    },
+    {
+      "label": "Condition",
+      "name": "condition",
+      "fieldType": "dropdown",
+      "required": true,
+      "options": ["New", "Used", "Certified Pre-Owned"],
+      "icon": "FaTruck",
+      "column":1
+    },
+    {
+        "label": "Type",
+        "name": "type",
+        "fieldType": "dropdown",
+        "required": true,
+        "options": ["Electric", "Hybrid", "Petrol", "Diesel"],
+        "column": 1,
+        "icon": "FaChargingStation"
+    },
+    {
+        "label": "Make",
+        "name": "make",
+        "fieldType": "dropdown",
+        "required": true,  
+        "options": [
+            "Toyota",
+            "Honda",
+            "Ford",
+            "Chevrolet",
+            "Nissan",
+            "BMW",
+            "Mercedes",
+            "Audi",
+            "Volkswagen",
+            "Kia",
+            "Hyundai",
+            "Mazda",
+            "Subaru",
+            "Jeep",
+            "Land Rover",
+            "Fiat",
+            "Skoda",
+            "Renault",
+            "Peugeot"
+        ],
+        "column": 1,
+        "icon": "FaIndustry"
+    },
+    {
+        "label": "Model",
+        "name": "model",
+        "fieldType": "text",
+        "required": true,
+        "column": 1,
+        "icon": "FaCarSide"
+    },
+    {
+        "label": "Year",
+        "name": "year",
+        "fieldType": "number",
+        "required": true,
+        "column": 1,
+        "icon": "FacalendarAlt"
+    },
+    {
+        "label": "Drive Type",
+        "name": "drive_type",
+        "fieldType": "dropdown",
+        "options": [
+            "FWD",
+            "RWD",
+            "AWD",
+            "4WD"
+        ],
+        "required": true,
+        "column": 1,
+        "icon": "FaRoad"
+    },
+    {
+        "label": "Transemission",
+        "name": "transmission",
+        "fieldType": "dropdown",
+        "options": [
+            "Manual",
+            "Automatic",
+            "CVT"
+        ],
+        "required": true,
+        "column": 1,
+        "icon": "FaCogs"
+    },
+    {
+        "label": "Fuel Type",
+        "name": "fuel_type",
+        "fieldType": "number",
+        "required": true,
+        "column": 1,
+        "icon": "faGasPump"
+    },
+    {
+        "label": "Mileage",
+        "name": "mileage",
+        "fieldType": "number",
+        "required": true,
+        "column": 1,
+        "icon": "faTachometerAlt"
+    },
+    {
+        "label": "Engine Size",
+        "name": "engine_size",
+        "fieldType": "text",
+        "column": 1,
+        "icon": "FaWrench"
+    },
+    {
+        "label": "Cylinder",
+        "name": "cylinder",
+        "fieldType": "number",
+        "column":1,
+        "icon": "FaCircle"
+    },
+    {
+        "label": "Color",
+        "name": "color",
+        "fieldType": "checkbox",
+        "required": true,
+        "column": 2,
+        "options": [
+            "Red",
+            "Blue",
+            "Green",
+            "Yellow",
+            "Black",
+            "White",
+            "Gray",
+            "Silver",
+            "Gold",
+            "Brown",
+            "Purple",
+            "Pink"
+        ],
+        "icon": "FaPalette"
+    },
+    {
+        "label": "Door",
+        "name": "door",
+        "fieldType": "number",
+        "required":true,
+        "column": 1,
+        "icon": "FaDoorClosed"
+    },
+    {
+        "label": "VIN",
+        "name": "vin",
+        "fieldType": "text",
+        "column": 1,
+        "icon": "FaIdCard"
+    },
+    {
+        "labe": "Offer Type",
+        "name": "offerType",
+        "fieldType": "dropdown",
+        "options": [
+            "Buy",
+            "Hot Offer",
+            "Sell",
+            "Urgent"
+        ],
+        "column": 2,
+        "icon": "FaTags"
+    },
+    {
+        "label": "Listing Description",
+        "name": "listingDescription",
+        "fieldType": "textarea",
+        "required":true,
+        "column": 2,
+        "icon": "FaFileAlt"
+
+    }
+  ]
+}
