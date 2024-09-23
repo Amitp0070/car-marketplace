@@ -1,0 +1,64 @@
+{
+    "features":[
+        {
+            "label": "Air Conditioner",
+            "name": "air_conditioner",
+            "fieldType": "checkbox"
+        },
+        {
+            "label": "Digital Odometer",
+            "name": "digital_odometer",
+            "fieldType":"checkbox"
+        },
+        {
+            "label": "GPS",
+            "name": "gps",
+            "fieldType": "checkbox"
+        },
+        {
+            "label": "HeateR",
+            "name": "heater",
+            "fieldType":"checkbox"
+        },
+        {
+            "label": "leather Seats",
+            "name": "leather_seats",
+            "fieldType": "checkbox"
+        },
+        {
+            "label": "Engine Type",
+            "name": "engine_type",
+            "fieldType": "checkbox"
+        },
+        {
+            "label": "Fuel Efficiency",
+            "name": "fuel_efficiency",
+            "fieldType": "checkbox"
+        },
+        {
+            "label": "Transmission",
+            "name": "transmission",
+            "fieldType":"checkbox"
+        },
+        {
+            "label": "Horsepower",
+            "name": "horsepower",
+            "fieldType":"checkbox"
+        },
+        {
+            "label": "Safety Features",
+            "name": "safety_features",
+            "fieldType": "checkbox"
+        },
+        {
+            "label": "Interior Space",
+            "name": "interior_space",
+            "fieldType": "checkbox"
+        },
+        {
+            "label": "Drive Type",
+            "name": "drive_type",
+            "fieldType": "checkbox"
+        }
+    ]
+}

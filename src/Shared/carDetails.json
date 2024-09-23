@@ -173,7 +173,7 @@
     {
         "label": "Color",
         "name": "color",
-        "fieldType": "checkbox",
+        "fieldType": "dropdown",
         "required": true,
         "column": 2,
         "options": [
@@ -208,7 +208,7 @@
         "icon": "FaIdCard"
     },
     {
-        "labe": "Offer Type",
+        "label": "Offer Type",
         "name": "offerType",
         "fieldType": "dropdown",
         "options": [
