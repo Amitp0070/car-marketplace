@@ -5,7 +5,7 @@
       "name": "listingTitle",
       "fieldType": "text",
       "required": true,
-      "icon": "FaClipboardlist"
+      "icon": "FaClipboard"
     },
     {
       "label": "Tagline",
@@ -111,7 +111,7 @@
         "fieldType": "number",
         "required": true,
         "column": 1,
-        "icon": "FacalendarAlt"
+        "icon": "FaCalenderAlt"
     },
     {
         "label": "Drive Type",
@@ -146,7 +146,7 @@
         "fieldType": "number",
         "required": true,
         "column": 1,
-        "icon": "faGasPump"
+        "icon": "FaGasPump"
     },
     {
         "label": "Mileage",
@@ -154,7 +154,7 @@
         "fieldType": "number",
         "required": true,
         "column": 1,
-        "icon": "faTachometerAlt"
+        "icon": "FaTachometerAlt"
     },
     {
         "label": "Engine Size",

@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import carDetails from "@/Shared/carDetails.json";
 import InputField from "./components/InputField";
 import DropdownField from "./components/DropdownField";
-import { Textarea } from "@/components/ui/textarea";
 import { Separator } from "@/components/ui/separator";
 import features from "@/Shared/features.json";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -11,31 +10,47 @@ import { Button } from "@/components/ui/button";
 import { db } from "./../../../configs";
 import { CarListing } from "./../../../configs/schema";
 import TextAreaField from "./components/TextAreaField";
+import IconsField from "./components/iconsField";
 function AddListing() {
-  
-    const [formData, setFormData]= useState([]);
+  const [formData, setFormData] = useState([]);
 
-    const handleInputChange=(name,value)=>{
-      setFormData((prevData)=>({
-        ...prevData,
-        [name]:value
-      }))
-      console.log(formData);
-    }
-    const onSubmit=async(e)=>{
-      e.preventDefault();
-      console.log(formData);
+  const [featuresData, setfeaturesData]=useState([]);
 
-      try{
-        const result=await db.insert(CarListing).values(formData);
-        if (result) {
-          console.log("Data Saved")
-        }
+  const handleInputChange = (name, value) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+    console.log(formData);
+  };
+
+  const handleFeatureChange = (name, value)=>{
+    setfeaturesData((prevData)=>({
+      ...prevData,
+      [name]:value
+    }))
+
+    console.log(featuresData);
+  }
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    console.log(formData);
+
+    try {
+      const result= await db.insert(CarListing).values({
+        ...formData,
+        features:featuresData
+      });
+      if (result) {
+        console.log("Data Saved");
+        
       }
-      catch(e){
-        console.log("Error",e)
-      }
+      
+    } catch (e) {
+      console.log("Error",e);
     }
+  }
   return (
     <div>
       <Header />
@@ -48,16 +63,26 @@ function AddListing() {
             <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-5">
               {carDetails.carDetails.map((item, index) => (
                 <div key={index}>
-                  <label className="text-sm">
-                    {item?.label}{" "}
+                  <label className="text-sm flex gap-1 mb-2 items-center">
+                    <IconsField icon={item?.icon} />
+                    {item?.label}
                     {item.required && <span className="text-red-500">*</span>}
                   </label>
                   {item.fieldType == "text" || item.fieldType == "number" ? (
-                    <InputField item={item} handleInputChange={handleInputChange} />
+                    <InputField
+                      item={item}
+                      handleInputChange={handleInputChange}
+                    />
                   ) : item.fieldType == "dropdown" ? (
-                    <DropdownField item={item} handleInputChange={handleInputChange} />
+                    <DropdownField
+                      item={item}
+                      handleInputChange={handleInputChange}
+                    />
                   ) : item.fieldType == "textarea" ? (
-                    <TextAreaField item={item} handleInputChange={handleInputChange}  />
+                    <TextAreaField
+                      item={item}
+                      handleInputChange={handleInputChange}
+                    />
                   ) : null}
                 </div>
               ))}
@@ -70,14 +95,19 @@ function AddListing() {
             <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
               {features.features.map((item, index) => (
                 <div key={index} className="flex gap-2 items-center">
-                  <Checkbox onCheckedChange={(value)=>handleInputChange(item.name,value)} /><h2>{item.label}</h2>
+                  <Checkbox
+                    onCheckedChange={(value) =>
+                      handleFeatureChange(item.name, value)
+                    }
+                  />
+                  <h2>{item.label}</h2>
                 </div>
               ))}
             </div>
           </div>
           {/* Car image */}
           <div className="flex justify-end mt-10">
-          <Button onClick={(e)=>onSubmit(e)}>Submit</Button>
+            <Button onClick={(e) => onSubmit(e)}>Submit</Button>
           </div>
         </form>
       </div>

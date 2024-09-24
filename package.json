@@ -8,8 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "db:push":"drizzle-kit push",
-    "db:studio":"drizzle-kit studio"
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
     "@clerk/clerk-react": "^5.9.1",
