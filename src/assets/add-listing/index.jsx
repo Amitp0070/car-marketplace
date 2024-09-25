@@ -10,7 +10,8 @@ import { Button } from "@/components/ui/button";
 import { db } from "./../../../configs";
 import { CarListing } from "./../../../configs/schema";
 import TextAreaField from "./components/TextAreaField";
-import IconsField from "./components/iconsField";
+import IconsField from "./components/IconsField";
+import UploadImages from "./components/UploadImages";
 function AddListing() {
   const [formData, setFormData] = useState([]);
 
@@ -105,11 +106,14 @@ function AddListing() {
               ))}
             </div>
           </div>
+          <Separator className="my-6" />
           {/* Car image */}
+
           <div className="flex justify-end mt-10">
             <Button onClick={(e) => onSubmit(e)}>Submit</Button>
           </div>
         </form>
+          <UploadImages/>
       </div>
     </div>
   );
