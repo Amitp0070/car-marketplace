@@ -12,10 +12,16 @@ import { CarListing } from "./../../../configs/schema";
 import TextAreaField from "./components/TextAreaField";
 import IconsField from "./components/IconsField";
 import UploadImages from "./components/UploadImages";
+import { BiLoaderAlt } from "react-icons/bi";
+import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
 function AddListing() {
   const [formData, setFormData] = useState([]);
 
-  const [featuresData, setfeaturesData]=useState([]);
+  const [featuresData, setfeaturesData] = useState([]);
+  const [triggerUploadImages, setTriggerUploadImages] = useState([]);
+  const [loader, setLoader] = useState(false);
+  const navigate=useNavigate();
 
   const handleInputChange = (name, value) => {
     setFormData((prevData) => ({
@@ -25,33 +31,38 @@ function AddListing() {
     console.log(formData);
   };
 
-  const handleFeatureChange = (name, value)=>{
-    setfeaturesData((prevData)=>({
+  const handleFeatureChange = (name, value) => {
+    setfeaturesData((prevData) => ({
       ...prevData,
-      [name]:value
-    }))
+      [name]: value,
+    }));
 
     console.log(featuresData);
-  }
+  };
 
   const onSubmit = async (e) => {
+    setLoader(true);
     e.preventDefault();
     console.log(formData);
+    toast('Please Wait...')
 
     try {
-      const result= await db.insert(CarListing).values({
-        ...formData,
-        features:featuresData
-      });
+      const result = await db
+        .insert(CarListing)
+        .values({
+          ...formData,
+          features: featuresData,
+        })
+        .returning({ id: CarListing.id });
       if (result) {
         console.log("Data Saved");
-        
+        setTriggerUploadImages(result[0]?.id);
+        setLoader(false);
       }
-      
     } catch (e) {
-      console.log("Error",e);
+      console.log("Error", e);
     }
-  }
+  };
   return (
     <div>
       <Header />
@@ -108,12 +119,18 @@ function AddListing() {
           </div>
           <Separator className="my-6" />
           {/* Car image */}
-
+          <UploadImages
+            triggerUploadImages={triggerUploadImages}
+            setLoader={(v) => {setLoader(v);navigate('/profile')}}
+          />
           <div className="flex justify-end mt-10">
-            <Button onClick={(e) => onSubmit(e)}>Submit</Button>
+            <Button type="button"
+            disabled={loader}
+            onClick={(e) => onSubmit(e)}>
+            {!loader?'Submit':<BiLoaderAlt className="animate-spin text-lg" />}
+            </Button>
           </div>
         </form>
-          <UploadImages/>
       </div>
     </div>
   );

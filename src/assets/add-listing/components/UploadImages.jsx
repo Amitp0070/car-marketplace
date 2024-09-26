@@ -1,11 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { storage } from "./../../../../configs/firebaseConfig";
-import { ref, uploadBytes } from "firebase/storage";
-import React, { useState } from "react";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import React, { useEffect, useState } from "react";
 import { IoCloseCircle } from "react-icons/io5";
+import { db } from "./../../../../configs";
+import { CarImages } from "./../../../../configs/schema";
 
-function UploadImages() {
+function UploadImages({triggerUploadImages, setLoader}) {
   const [selectedFileList, setSelectedFileList] = useState([]);
+  useEffect(()=>{
+    if (triggerUploadImages) {
+      UploadImageToServer();
+    }
+  },[triggerUploadImages])
   const onFileSelected = (event) => {
     const files = event.target.files;
 
@@ -20,16 +27,26 @@ function UploadImages() {
     setSelectedFileList(result);
   }
 
-  const UploadImages=()=>{
-    selectedFileList.forEach((file)=>{
-        const fileName=Date.now()+'jpeg';
-        const storageRef=ref(storage,'car-marketplace/'+fileName);
+  const UploadImageToServer=async()=>{
+    setLoader=(true)
+    await selectedFileList.forEach(async(file)=>{
+        const fileName=Date.now()+'.jpeg';
+        const storageRef=ref(storage,'car-marketcity/'+fileName);
         const metaData={
             contentType:'image/jpeg'
         }
-        uploadBytes(storageRef,file,metaData).then((snapShot)=>{
+        await uploadBytes(storageRef,file,metaData).then((snapShot)=>{
             console.log('uploaded File');
+        }).then(res=>{
+          getDownloadURL(storageRef).then(async(downloadUrl)=>{
+            console.log(downloadUrl);
+            await db.insert(CarImages).values({
+              imageUrl:downloadUrl,
+              carListingId:triggerUploadImages
+            })
+          })
         })
+     setLoader(false);
     })
   }
   return (
@@ -63,7 +80,7 @@ function UploadImages() {
           className="opacity-0"
         />
       </div>
-      <Button onClick={UploadImages}>Upload Images</Button>
+      
     </div>
   );
 }

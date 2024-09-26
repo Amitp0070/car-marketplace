@@ -5,13 +5,15 @@ import { getStorage } from 'firebase/storage'
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: "car-marketplace-ff486.firebaseapp.com",
-  projectId: "car-marketplace-ff486",
-  storageBucket: "car-marketplace-ff486.appspot.com",
-  messagingSenderId: "1096201453285",
-  appId: "1:1096201453285:web:ded4f2cf937f1620d0de0c"
+  authDomain: "car-marketcity.firebaseapp.com",
+  projectId: "car-marketcity",
+  storageBucket: "car-marketcity.appspot.com",
+  messagingSenderId: "659835775631",
+  appId: "1:659835775631:web:616b8b4a304bd940855efa",
+  measurementId: "G-Q3ZVLZ6ZS8"
 };
 
 // Initialize Firebase
