@@ -6,7 +6,7 @@ import { IoCloseCircle } from "react-icons/io5";
 import { db } from "./../../../../configs";
 import { CarImages } from "./../../../../configs/schema";
 
-function UploadImages({triggerUploadImages, setLoader}) {
+function UploadImages({triggerUploadImages,setLoader}) {
   const [selectedFileList, setSelectedFileList] = useState([]);
   useEffect(()=>{
     if (triggerUploadImages) {
@@ -28,7 +28,7 @@ function UploadImages({triggerUploadImages, setLoader}) {
   }
 
   const UploadImageToServer=async()=>{
-    setLoader=(true)
+    setLoader=(true);
     await selectedFileList.forEach(async(file)=>{
         const fileName=Date.now()+'.jpeg';
         const storageRef=ref(storage,'car-marketcity/'+fileName);

@@ -7,8 +7,7 @@ import Contact from './contact'
 import { ClerkProvider } from '@clerk/clerk-react'
 import Profile from './assets/profile'
 import AddListing from './assets/add-listing'
-import { Toaster } from './components/ui/sonner'
-
+import { Toaster } from '@/components/ui/sonner'
 
 const router=createBrowserRouter([
 
