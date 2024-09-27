@@ -16,7 +16,7 @@ import { BiLoaderAlt } from "react-icons/bi";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "@clerk/clerk-react";
-import moment from 'moments'
+import moment from "moment";
 
 function AddListing() {
   const [formData, setFormData] = useState([]);
@@ -24,8 +24,8 @@ function AddListing() {
   const [featuresData, setfeaturesData] = useState([]);
   const [triggerUploadImages, setTriggerUploadImages] = useState([]);
   const [loader, setLoader] = useState(false);
-  const navigate=useNavigate();
-  const {user}=useUser();
+  const navigate = useNavigate();
+  const { user } = useUser();
 
   const handleInputChange = (name, value) => {
     setFormData((prevData) => ({
@@ -51,11 +51,15 @@ function AddListing() {
     toast("Please Wait...");
 
     try {
-      const result = await db.insert(CarListing).values({
+      const result = await db
+        .insert(CarListing)
+        .values({
           ...formData,
           features: featuresData,
-          createBy:user?.primaryEmailAddress?.emailAddress,
-          postedOn:moment().format('DD/MM/yyyy')
+
+          // there are somthind wrong solve to latter
+          createBy: user?.primaryEmailAddress?.emailAddress,
+          postedOn: moment().format("DD/MM/yyyy"),
         })
         .returning({ id: CarListing.id });
       if (result) {
@@ -125,7 +129,10 @@ function AddListing() {
           {/* Car image */}
           <UploadImages
             triggerUploadImages={triggerUploadImages}
-            setLoader={(v) => {setLoader(v);navigate('/profile')}}
+            setLoader={(v) => {
+              setLoader(v);
+              navigate("/profile");
+            }}
           />
           <div className="flex justify-end mt-10">
             <Button
@@ -133,9 +140,9 @@ function AddListing() {
               disabled={loader}
               onClick={(e) => onSubmit(e)}
             >
-              {!loader ? 
+              {!loader ? (
                 "Submit"
-              : (
+              ) : (
                 <BiLoaderAlt className="animate-spin text-lg" />
               )}
             </Button>

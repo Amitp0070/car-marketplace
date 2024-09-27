@@ -33,9 +33,10 @@ function Header() {
           </Link>
         </div>
       ) : (
-        <SignInButton modal='modal' forceRedirectUrl="/" >
-          <Button className="bg-black hover:bg-black">Sing In</Button>
-        </SignInButton>
+        <Button>Submit Listing</Button>
+        // <SignInButton modal='modal' forceRedirectUrl="/" >
+        //   <Button className="bg-black hover:bg-black">Sing In</Button>
+        // </SignInButton>
       )}
     </div>
   );
