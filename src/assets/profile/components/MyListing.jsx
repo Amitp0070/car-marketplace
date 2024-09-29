@@ -7,28 +7,27 @@ import { desc, eq } from "drizzle-orm";
 import { useUser } from "@clerk/clerk-react";
 import CarItem from "@/components/CarItem";
 import Service from "@/Shared/Service";
-
+import { FaTrashAlt } from "react-icons/fa";
 
 function MyListing() {
-
-
   const { user } = useUser();
-  const [carList, setCarList]=useState([]);
+  const [carList, setCarListing] = useState([]);
 
   useEffect(() => {
-    user&&GetUserCarListing();
-  }, [user])
+    user && GetUserCarListing();
+  }, [user]);
   const GetUserCarListing = async () => {
     const result = await db
       .select()
       .from(CarListing)
       .leftJoin(CarImages, eq(CarListing.id, CarImages.carListingId))
       .where(eq(CarListing.createBy, user?.primaryEmailAddress?.emailAddress))
-      .orderBy(desc(CarListing.id))
+      .orderBy(desc(CarListing.id));
 
-      const resp=Service.FormatResult(result)
-      console.log(resp);
-      setCarList(resp);
+    // Usage
+    const resp = Service.FormatResult(result); // Assuming 'result' is the response you want to format
+    console.log("Formatted Response:", resp);
+    setCarListing(resp);
   };
 
   return (
@@ -39,10 +38,14 @@ function MyListing() {
           <Button>+ Add New Listing</Button>
         </Link>
       </div>
-      <div>
-        {carList.map((item,index)=>(
+      <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 mt-4 gap-5">
+        {carList.map((item, index) => (
           <div key={index}>
             <CarItem car={item} />
+            <div className="p-1 bg-gray-50 rounded-xl flex justify-between gap-2">
+              <Button variant='outline' className="w-full">Edit</Button>
+              <Button variant='destructive'><FaTrashAlt /></Button>
+            </div>
           </div>
         ))}
       </div>

@@ -8,7 +8,9 @@ function Header() {
 
   return (
     <div className="flex justify-between items-center shadow-sm p-4">
+      <Link to={"/"}>
       <img src="/logo.svg" width={50} />
+      </Link>
 
       <ul className="hidden md:flex gap-16">
         <li className="font-medium hover:scale-105 transition-all  cursor-pointer hover:text-primary">

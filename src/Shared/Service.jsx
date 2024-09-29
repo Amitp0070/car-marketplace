@@ -3,10 +3,10 @@ const FormatResult = (resp) => {
   let finalResult = [];
 
   resp.forEach((item) => {
-    const listingId = item.carListing?.id;
+    const listingId = item.carListings?.id;
     if (!result[listingId]) {
       result[listingId] = {
-        car: item.carListing,
+        car: item.carListings,
         images: [],
       };
     }
@@ -17,7 +17,7 @@ const FormatResult = (resp) => {
   });
 
   // Convert the result object to an array for the final output
-  Object.values(result).forEach((item) => {
+  result.forEach((item) => {
     finalResult.push({
       ...item.car,
       images: item.images,
