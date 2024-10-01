@@ -17,7 +17,7 @@ function MostSearchCar() {
   const [carList, setCarList]=useState([]);
   useEffect(()=>{
     GetPapularCarList();
-  })
+  },[])
   
   const GetPapularCarList=async()=>{
     const result = await db
