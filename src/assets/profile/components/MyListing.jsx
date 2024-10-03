@@ -26,7 +26,7 @@ function MyListing() {
 
     // Usage
     const resp = Service.FormatResult(result); // Assuming 'result' is the response you want to format
-    console.log("Formatted Response:", resp);
+    // console.log("Formatted Response:", resp);
     setCarListing(resp);
   };
 

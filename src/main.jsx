@@ -9,6 +9,7 @@ import Profile from './assets/profile'
 import AddListing from './assets/add-listing'
 import { Toaster } from '@/components/ui/sonner'
 import SearchByCategory from './search/[category]/SearchByCategory'
+import SearchByOption from './search/SearchByOption'
 
 const router=createBrowserRouter([
 
@@ -29,9 +30,14 @@ const router=createBrowserRouter([
     element: <AddListing/>
   },
   {
+    path: '/search',
+    element: <SearchByOption/>
+  },
+  {
     path: '/search/:category',
     element: <SearchByCategory/>
   }
+ 
 ])
 
 // Import your publishable key
