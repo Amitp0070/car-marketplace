@@ -40,11 +40,6 @@ export default [
     icon: "FaCalenderAlt",
   },
   {
-    label: "Drive Type",
-    name: "drive_type",
-    icon: "FaRoad",
-  },
-  {
     label: "Transemission",
     name: "transmission",
     icon: "FaCogs",
@@ -58,16 +53,6 @@ export default [
     label: "Mileage",
     name: "mileage",
     icon: "FaTachometerAlt",
-  },
-  {
-    label: "Engine Size",
-    name: "engine_size",
-    icon: "FaWrench",
-  },
-  {
-    label: "Cylinder",
-    name: "cylinder",
-    icon: "FaCircle",
   },
   {
     label: "Color",

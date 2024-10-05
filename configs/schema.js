@@ -25,6 +25,8 @@ export const CarListing=pgTable('carListings',{
     listingDescription:varchar('listingDescription').notNull(),
     features:json('features'),
     createBy:varchar('createBy').notNull(),
+    userName:varchar('userName').notNull().default('@CodeWithAmit'),
+    userImageUrl:varchar('userImageUrl').default('https://png.pngtree.com/png-clipart/20220221/original/pngtree-om-namah-shivaya-hindi-text-png-image_7286740.png'),
     postedOn:varchar('postedOn'),
 })
 
