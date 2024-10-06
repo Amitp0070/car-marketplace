@@ -13,6 +13,8 @@ import Pricing from "../components/Pricing";
 import Specification from "../components/Specification";
 import Footer from "@/components/Footer";
 import OwnerDetail from "../components/OwnerDetail";
+import FinancialCalculator from "../components/FinancialCalculator";
+import MostSearchCar from "@/components/MostSearchCar";
 
 function ListingDetail() {
   const { id } = useParams();
@@ -47,11 +49,13 @@ function ListingDetail() {
           {/* Left  */}
           <div className="md:col-span-2">
             {/* Image Gallary   */}
-              <ImageGallery carDetail={carDetail}/>
+            <ImageGallery carDetail={carDetail} />
             {/* Description  */}
-              <Description carDetail={carDetail} />
+            <Description carDetail={carDetail} />
             {/* Features List  */}
             <Features features={carDetail?.features} />
+            {/* Financial Calculator  */}
+            <FinancialCalculator carDetail={carDetail} />
           </div>
           {/* Right  */}
           <div>
@@ -63,8 +67,9 @@ function ListingDetail() {
             <OwnerDetail carDetail={carDetail} />
           </div>
         </div>
-        <Footer/>
+        <MostSearchCar />
       </div>
+      <Footer />
     </div>
   );
 }
