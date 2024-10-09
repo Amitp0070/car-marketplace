@@ -31,11 +31,11 @@ const FormatResult = (resp) => {
   return finalResult;
 };
 
-const CreateSendBirdUser = (user_Id, nickName, profileUrl) => {
+const CreateSendBirdUser = (userId, nickName, profileUrl) => {
   return axios.post(
     "https://api-" + SendBirdApplicationId + ".sendbird.com/v3/users",
     {
-      user_id: user_Id,
+      user_id: userId,
       nickname: nickName,
       profile_url: profileUrl,
       issue_access_token: false,
