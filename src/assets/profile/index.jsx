@@ -3,6 +3,7 @@ import React from "react";
 import MyListing from "./components/MyListing";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Inbox from "./components/Inbox";
+import Footer from "@/components/Footer";
 
 function Profile() {
   return (
@@ -22,6 +23,7 @@ function Profile() {
           <TabsContent value="profile">Profile Tab</TabsContent>
         </Tabs>
       </div>
+      <Footer/>
     </div>
   );
 }
