@@ -10,7 +10,7 @@ function DetailHeader({ carDetail }) {
         <h2 className="font-bold text-4xl">{carDetail?.listingTitle}</h2>
         <p className="text-sm mt-1">{carDetail?.tagline}</p>
 
-        <div className="flex gap-4 mt-3 ">
+        <div className="flex gap-2 mt-3 ">
           <div className="flex gap-1 bg-blue-50 rounded-full p-1 px-3  items-center">
             <FaCalendarCheck className="text-primary h-4 w-4" />
             <p className="text-sm text-primary">{carDetail?.year}</p>

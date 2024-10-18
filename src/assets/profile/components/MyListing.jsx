@@ -51,9 +51,7 @@ function MyListing() {
                   Edit
                 </Button>
               </Link>
-              <Button variant="destructive">
-                <FaTrashAlt />
-              </Button>
+             
             </div>
           </div>
         ))}

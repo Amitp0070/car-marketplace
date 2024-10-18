@@ -14,13 +14,13 @@ function Profile() {
           <TabsList className="w-full flex justify-start">
             <TabsTrigger value="my-listing">My Listing</TabsTrigger>
             <TabsTrigger value="inbox">Inbox</TabsTrigger>
-            <TabsTrigger value="profile">Profile</TabsTrigger>
+            {/* <TabsTrigger value="profile">Profile</TabsTrigger> */}
           </TabsList>
           <TabsContent value="my-listing">
             <MyListing />
           </TabsContent>
           <TabsContent value="inbox"><Inbox/></TabsContent>
-          <TabsContent value="profile">Profile Tab</TabsContent>
+          {/* <TabsContent value="profile">Profile Tab</TabsContent> */}
         </Tabs>
       </div>
       <Footer/>
