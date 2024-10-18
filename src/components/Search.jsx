@@ -60,7 +60,7 @@ function Search() {
       </Select>
       <Link to={'/search?cars='+cars+"&make="+make+"&price="+price}>
         <CiSearch
-          className="text-[50px] p-3 bg-primary 
+          className="text-[50px] p-3 bg-primary
         rounded-full text-white hover:scale-105 transition-all cursor-pointer"
         />
       </Link>
