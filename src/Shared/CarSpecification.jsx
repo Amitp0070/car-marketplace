@@ -1,14 +1,5 @@
 export default [
-  {
-    label: "Listing Title",
-    name: "listingTitle",
-    icon: "FaClipboard",
-  },
-  {
-    label: "Tagline",
-    name: "tagline",
-    icon: "FaTag",
-  },
+  
   {
     label: "Category",
     name: "category",
